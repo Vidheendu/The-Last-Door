@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Last Door</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<div class="overlay"></div>
+<div class="flashlight"></div>
+
+<header>
+  
+  
+  <div class="timer-box">
+    ⏳ <span id="timer">05:00</span>
+  </div>
+  <div class="header-right">
+    <button id="exitBtn" class="exit-btn">
+      EXIT GAME
+    </button>
+  </div>
+
+</header>
+
+<div class="health-container">
+  <div class="health-bar" id="healthBar"></div>
+</div>
+
+<div class="inventory">
+
+  <div class="slot" id="slot1">?</div>
+  <div class="slot" id="slot2">?</div>
+  <div class="slot" id="slot3">?</div>
+
+</div>
+
+<div class="minimap">
+
+  <div class="map-room active-room">L1</div>
+  <div class="map-room">L2</div>
+  <div class="map-room">L3</div>
+
+</div>
+
+<section class="intro-screen" id="introScreen">
+
+  <h1>THE LAST DOOR</h1>
+  <p>
+    Escape the underground AI laboratory before total shutdown.
+  </p>
+  <button id="startBtn">
+    START GAME
+  </button>
+</section>
+
+<main class="game hidden" id="gameArea">
+  <div class="room">
+    <div class="flicker-light"></div>
+    <div class="terminal object" id="terminal">
+      TERMINAL
+    </div>
+
+    <div class="file object" id="file"></div>
+
+    <div class="screen object" id="screenObj">
+      ACCESS
+    </div>
+
+    <div class="door object" id="door">
+      <div class="door-light"></div>
+    </div>
+
+    <div class="hidden-clue" id="hiddenClue"></div>
+
+  </div>
+
+  <div class="panel">
+
+    <div class="panel-title">
+      SYSTEM LOG
+    </div>
+
+    <div class="message" id="messageBox">
+      Search the room.
+    </div>
+
+    <div class="code-box hidden" id="codeBox">
+
+      <input type="text" id="codeInput" placeholder="Enter Code">
+
+      <button id="unlockBtn">
+        UNLOCK
+      </button>
+
+    </div>
+
+  </div>
+  
+
+</div>
+
+</main>
+
+<section class="success-screen hidden" id="successScreen">
+
+  <h1>ESCAPE SUCCESSFUL</h1>
+
+  <p>
+    You escaped The Last Door.
+  </p>
+
+  <button onclick="location.reload()">
+    PLAY AGAIN
+  </button>
+
+</section>
+
+<section class="failure-screen hidden" id="failureScreen">
+
+  <h1>MISSION FAILED</h1>
+
+  <p>
+    The laboratory has locked down permanently.
+  </p>
+
+  <button onclick="location.reload()">
+    RETRY
+  </button>
+
+</section>
+
+<audio id="clickSound" src="sounds/click.mp3"></audio>
+<audio id="successSound" src="sounds/success.mp3"></audio>
+<audio id="errorSound" src="sounds/error.mp3"></audio>
+
+<script src="script.js"></script>
+
+</body>
+</html>
