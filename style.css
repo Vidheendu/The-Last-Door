@@ -1,0 +1,390 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#050816;
+    overflow:hidden;
+    color:white;
+}
+
+.overlay{
+    position:fixed;
+    inset:0;
+    background:
+    radial-gradient(circle at top, rgba(0,255,255,0.15), transparent 30%),
+    radial-gradient(circle at bottom, rgba(255,0,255,0.12), transparent 30%);
+    pointer-events:none;
+}
+
+.flashlight{
+    position:fixed;
+    width:300px;
+    height:300px;
+    border-radius:50%;
+    pointer-events:none;
+    background:
+    radial-gradient(circle,
+    rgba(255,255,255,0.15) 0%,
+    rgba(0,0,0,0.95) 70%);
+    mix-blend-mode:screen;
+    transform:translate(-50%,-50%);
+    z-index:9999;
+}
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    padding:20px 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    z-index:100;
+}
+
+
+.logo{
+    font-family:'Orbitron',sans-serif;
+    font-size:3rem;
+    font-weight:700;
+    letter-spacing:6px;
+
+    display:flex;
+    align-items:center;
+    gap:18px;
+
+    white-space:nowrap;
+
+    position:relative;
+    z-index:1000;
+
+    background:none !important;
+    box-shadow:none !important;
+    border:none !important;
+    padding:0 !important;
+}
+
+
+.logo::before,
+.logo::after{
+    display:none !important;
+}
+
+.logo .project{
+    color:#8fffe7;
+
+    text-shadow:
+    0 0 10px #8fffe7,
+    0 0 20px #8fffe7,
+    0 0 20px #43ffd0,
+    0 0 40px rgba(67,255,208,0.5);
+}
+
+.logo .eclipse{
+    color:#c8ffff;
+
+    text-shadow:
+    0 0 5px #9dfcff,
+    0 0 10px #9dfcff,
+    0 0 20px #45e3ff,
+    0 0 40px rgba(69,227,255,0.45);
+}
+
+.timer-box{
+    background:rgba(255,255,255,0.08);
+    padding:12px 20px;
+    border-radius:14px;
+    backdrop-filter:blur(10px);
+}
+
+.hidden{
+    display:none !important;
+}
+
+.intro-screen,
+.success-screen,
+.failure-screen{
+    position:absolute;
+    inset:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+}
+
+.intro-screen h1,
+.success-screen h1,
+.failure-screen h1{
+    font-size:6rem;
+    font-family:'Orbitron',sans-serif;
+    margin-bottom:25px;
+}
+
+.success-screen h1{
+    color:#00ff95;
+    text-shadow:0 0 28px #00ff95;
+}
+
+.failure-screen h1{
+    color:#ff4d6d;
+}
+
+button{
+    border:none;
+    padding:14px 28px;
+    border-radius:12px;
+    cursor:pointer;
+    background:linear-gradient(45deg,#00ffff,#4facfe);
+    font-weight:600;
+    transition:0.3s;
+}
+
+button:hover{
+    transform:translateY(-2px);
+    box-shadow:0 0 20px rgba(0,255,255,0.4);
+}
+
+.game{
+    width:100%;
+    height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:30px;
+    padding:80px 40px;
+}
+
+.room{
+    width:850px;
+    height:500px;
+    border-radius:24px;
+    position:relative;
+    background:linear-gradient(to bottom,#12192e,#06080f);
+    overflow:hidden;
+    box-shadow:0 0 40px rgba(0,255,255,0.2);
+}
+
+.object{
+    position:absolute;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.object:hover{
+    transform:scale(1.05);
+}
+
+.terminal{
+    width:180px;
+    height:120px;
+    background:#111827;
+    left:70px;
+    bottom:60px;
+    border-radius:16px;
+    border:2px solid #00ffff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.file{
+    width:70px;
+    height:50px;
+    background:#d90429;
+    left:300px;
+    bottom:80px;
+    border-radius:8px;
+}
+
+.screen{
+    width:160px;
+    height:100px;
+    background:#0f172a;
+    right:260px;
+    top:80px;
+    border-radius:16px;
+    border:2px solid #00ffff;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.door{
+    width:180px;
+    height:320px;
+    right:40px;
+    bottom:40px;
+    background:linear-gradient(to bottom,#1f2937,#111827);
+    border-radius:20px;
+    border:2px solid rgba(255,255,255,0.15);
+    transform-origin:left;
+    transition:1.5s ease;
+}
+
+.door-open{
+    transform:perspective(1200px) rotateY(-110deg);
+}
+
+.door-light{
+    position:absolute;
+    width:18px;
+    height:18px;
+    background:red;
+    border-radius:50%;
+    top:20px;
+    right:20px;
+}
+
+.panel{
+    width:380px;
+    background:rgba(255,255,255,0.05);
+    backdrop-filter:blur(16px);
+    padding:24px;
+    border-radius:24px;
+}
+
+.panel-title{
+    font-family:'Orbitron',sans-serif;
+    color:#00ffff;
+    margin-bottom:20px;
+}
+
+.message{
+    min-height:120px;
+    line-height:1.8;
+}
+
+.code-box{
+    margin-top:20px;
+    display:flex;
+    gap:10px;
+}
+
+input{
+    flex:1;
+    padding:14px;
+    border:none;
+    border-radius:12px;
+    outline:none;
+}
+
+.inventory{
+    position:absolute;
+    bottom:20px;
+    left:50%;
+    transform:translateX(-50%);
+    display:flex;
+    gap:15px;
+}
+
+.slot{
+    width:70px;
+    height:70px;
+    border-radius:12px;
+    background:rgba(255,255,255,0.08);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.minimap{
+    position:absolute;
+    top:100px;
+    right:30px;
+    display:flex;
+    flex-direction:column;
+    gap:12px;
+}
+
+.map-room{
+    width:60px;
+    height:60px;
+    border-radius:12px;
+    background:rgba(255,255,255,0.08);
+    display:flex;
+    justify-content:center;
+    align-items:center;
+}
+
+.active-room{
+    background:#00ffff;
+    color:black;
+}
+
+.health-container{
+    position:absolute;
+    top:30px;
+    left:30px;
+    width:220px;
+    height:24px;
+    border-radius:20px;
+    overflow:hidden;
+    background:#222;
+}
+
+.health-bar{
+    width:100%;
+    height:100%;
+    background:linear-gradient(to right,#00ff95,#00ffff);
+}
+
+.flicker-light{
+    position:absolute;
+    width:250px;
+    height:250px;
+    background:rgba(0,255,255,0.15);
+    border-radius:50%;
+    top:-100px;
+    left:50%;
+    transform:translateX(-50%);
+    filter:blur(40px);
+    animation:flickerLight 0.2s infinite;
+}
+
+@keyframes flickerLight{
+    0%{opacity:0.9;}
+    50%{opacity:0.3;}
+    100%{opacity:1;}
+}
+
+.hidden-clue{
+    position:absolute;
+    width:20px;
+    height:20px;
+    right:120px;
+    top:160px;
+    cursor:pointer;
+}
+
+.shake{
+    animation:shake 0.3s;
+}
+
+@keyframes shake{
+    0%{transform:translateX(0);}
+    25%{transform:translateX(-5px);}
+    50%{transform:translateX(5px);}
+    75%{transform:translateX(-5px);}
+    100%{transform:translateX(0);}
+}
+
+.header-right{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.exit-btn{
+    background:linear-gradient(45deg,#ff4d6d,#ff758f);
+    color:white;
+}
+
+.exit-btn:hover{
+    box-shadow:0 0 20px rgba(255,77,109,0.5);
+}
