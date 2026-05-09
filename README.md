@@ -75,9 +75,7 @@ cd project-eclipse
 Simply open:
 
 index.html
-
 in your browser.
-
 🎯 Gameplay Controls
 Action	Control
 Interact	Mouse Click
@@ -102,11 +100,6 @@ hidden clues
 logical decoding
 environmental storytelling
 multi-step puzzles
-🏆 Trophy System
-
-Players unlock trophies after completing levels.
-
-Animated trophy unlocks provide progression rewards.
 
 🔥 Future Improvements
 
@@ -120,16 +113,14 @@ Voice narration
 Procedural puzzles
 Online leaderboard
 Story cutscenes
+
 🤝 Contributing
-
 **Contributions are welcome.
-
 You can improve:
-
-puzzles
-visuals
-animations
-sound design
+puzzles,
+visuals,
+animations,
+sound design,
 gameplay mechanics**
 
 📜 License
