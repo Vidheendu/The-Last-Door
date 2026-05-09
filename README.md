@@ -65,7 +65,7 @@ project-eclipse/
 └── README.md
 🚀 How to Run
 1. Clone the repository: 
-git clone https://github.com/your-username/project-eclipse.git
+git clone https://github.com/Vidheendu/project-eclipse.git
 2. Open project folder
 cd project-eclipse
 3. Run the game
